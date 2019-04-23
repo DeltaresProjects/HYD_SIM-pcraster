@@ -15,8 +15,7 @@ set(${PROJECT_NAME}_MAJOR_VERSION "4")
 set(${PROJECT_NAME}_MINOR_VERSION "3")
 set(${PROJECT_NAME}_PATCH_VERSION "0")
 set(${PROJECT_NAME}_PRE_RELEASE_VERSION "-dev")
-set(${PROJECT_NAME}_VERSION
-    "${${PROJECT_NAME}_MAJOR_VERSION}.${${PROJECT_NAME}_MINOR_VERSION}.${${PROJECT_NAME}_PATCH_VERSION}${${PROJECT_NAME}_PRE_RELEASE_VERSION}")
+set(${PROJECT_NAME}_VERSION "${${PROJECT_NAME}_MAJOR_VERSION}.${${PROJECT_NAME}_MINOR_VERSION}.${${PROJECT_NAME}_PATCH_VERSION}${${PROJECT_NAME}_PRE_RELEASE_VERSION}")
 message(${PROJECT_NAME}_VERSION)
 
 set(CMAKE_MODULE_PATH $ENV{CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/devbase/cmake ${CMAKE_CURRENT_SOURCE_DIR}/environment/cmake)
@@ -25,7 +24,7 @@ message(${CMAKE_MODULE_PATH})
 include(PCRaster)
 
 add_subdirectory(source)
-# add_subdirectory(documentation)
+add_subdirectory(documentation)
 
 # Create version information file
 # Dummy target that does nothing. This enables us to attach build commands.
