@@ -30,9 +30,4 @@ add_custom_target(version_info_dummy_target ALL)
 add_custom_command(TARGET version_info_dummy_target PRE_BUILD COMMAND "${CMAKE_COMMAND}" -DVER=${pcraster_VERSION} -DSRC_DIR=${CMAKE_CURRENT_SOURCE_DIR} -P "${CMAKE_CURRENT_SOURCE_DIR}/environment/cmake/PCRasterVersionInformation.cmake")
 
 
-install(
-  FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/pcraster_version.txt
-  DESTINATION
-    doc
-)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/pcraster_version.txt DESTINATION doc)
