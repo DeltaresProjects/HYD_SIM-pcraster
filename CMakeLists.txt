@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(pcraster)
-message(${pcraster})
 
 set(DEV_CURRENT_YEAR "2018")
 
