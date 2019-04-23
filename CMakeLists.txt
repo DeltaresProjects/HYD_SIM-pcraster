@@ -1,8 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(pcraster)
+message(${pcraster})
 
 set(DEV_CURRENT_YEAR "2018")
+message(${DEV_CURRENT_YEAR})
 
 set(${PROJECT_NAME}_ORGANISATION_NAME "PCRaster Research and Development Team")
 set(${PROJECT_NAME}_COPYRIGHT
@@ -15,12 +17,15 @@ set(${PROJECT_NAME}_PATCH_VERSION "0")
 set(${PROJECT_NAME}_PRE_RELEASE_VERSION "-dev")
 set(${PROJECT_NAME}_VERSION
     "${${PROJECT_NAME}_MAJOR_VERSION}.${${PROJECT_NAME}_MINOR_VERSION}.${${PROJECT_NAME}_PATCH_VERSION}${${PROJECT_NAME}_PRE_RELEASE_VERSION}")
+message(${PROJECT_NAME}_VERSION)
 
 set(CMAKE_MODULE_PATH
     $ENV{CMAKE_MODULE_PATH}
     ${CMAKE_CURRENT_SOURCE_DIR}/devbase/cmake
     ${CMAKE_CURRENT_SOURCE_DIR}/environment/cmake
 )
+message(${CMAKE_MODULE_PATH})
+
 include(PCRaster)
 
 add_subdirectory(source)
