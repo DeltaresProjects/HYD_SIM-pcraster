@@ -25,7 +25,7 @@ message(${CMAKE_MODULE_PATH})
 include(PCRaster)
 
 add_subdirectory(source)
-add_subdirectory(documentation)
+# add_subdirectory(documentation)
 
 # Create version information file
 # Dummy target that does nothing. This enables us to attach build commands.
