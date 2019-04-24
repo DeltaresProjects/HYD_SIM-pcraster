@@ -1,16 +1,12 @@
-cmake_minimum_required(VERSION 3.5)
-
-if(POLICY CMP0063)
-  cmake_policy(SET CMP0063 NEW)
-endif()
-
-if(POLICY CMP0072)
-  cmake_policy(SET CMP0072 NEW)
+if(PCRASTER_BUILD_TEST)
+    cmake_minimum_required(VERSION 3.7)
+else()
+    cmake_minimum_required(VERSION 2.8)
 endif()
 
 project(pcraster)
 
-set(DEV_CURRENT_YEAR "2019")
+set(DEV_CURRENT_YEAR "2018")
 
 set(${PROJECT_NAME}_ORGANISATION_NAME "PCRaster Research and Development Team")
 set(${PROJECT_NAME}_COPYRIGHT
@@ -18,17 +14,20 @@ set(${PROJECT_NAME}_COPYRIGHT
 set(${PROJECT_NAME}_PROJECT_NAME "${PROJECT_NAME}")
 set(${PROJECT_NAME}_HOMEPAGE "http://www.pcraster.eu")
 set(${PROJECT_NAME}_MAJOR_VERSION "4")
-set(${PROJECT_NAME}_MINOR_VERSION "3")
-set(${PROJECT_NAME}_PATCH_VERSION "0")
-set(${PROJECT_NAME}_PRE_RELEASE_VERSION "dev")
+set(${PROJECT_NAME}_MINOR_VERSION "2")
+set(${PROJECT_NAME}_PATCH_VERSION "1")
+set(${PROJECT_NAME}_PRE_RELEASE_VERSION "")
 set(${PROJECT_NAME}_VERSION
-    "${${PROJECT_NAME}_MAJOR_VERSION}.${${PROJECT_NAME}_MINOR_VERSION}.${${PROJECT_NAME}_PATCH_VERSION}-${${PROJECT_NAME}_PRE_RELEASE_VERSION}")
+    "${${PROJECT_NAME}_MAJOR_VERSION}.${${PROJECT_NAME}_MINOR_VERSION}.${${PROJECT_NAME}_PATCH_VERSION}${${PROJECT_NAME}_PRE_RELEASE_VERSION}")
 
 set(CMAKE_MODULE_PATH
     $ENV{CMAKE_MODULE_PATH}
     ${CMAKE_CURRENT_SOURCE_DIR}/devbase/cmake
     ${CMAKE_CURRENT_SOURCE_DIR}/environment/cmake
 )
+
+set( CURSES_LIBRARY "/usr/lib/i386-linux-gnu/libncurses.so.5")
+set( CURSES_INCLUDE_PATH "/usr/include/curses.h")
 
 include(PCRaster)
 
@@ -54,22 +53,3 @@ install(
   DESTINATION
     doc
 )
-
-# Display configuration summary
-message(STATUS "-------------------------------------------------")
-message(STATUS "PCRaster configuration summary:")
-message(STATUS "  Version:                " ${${PROJECT_NAME}_VERSION})
-message(STATUS "  Installation directory: " ${CMAKE_INSTALL_PREFIX} )
-message(STATUS "  Build options:")
-message(STATUS "    Type:                 " ${CMAKE_BUILD_TYPE})
-message(STATUS "    Aguila:               " ${PCRASTER_BUILD_AGUILA})
-message(STATUS "    Multicore:            " ${PCRASTER_BUILD_MULTICORE})
-message(STATUS "    Modflow:              " ${PCRASTER_BUILD_MODFLOW})
-message(STATUS "    Oldcalc:              " ${PCRASTER_BUILD_OLDCALC})
-message(STATUS "    Tests:                " ${PCRASTER_BUILD_TEST})
-message(STATUS "    Documentation:        " ${PCRASTER_BUILD_DOCUMENTATION})
-message(STATUS "  Experimental:")
-message(STATUS "    BlockPython:          " ${PCRASTER_BUILD_BLOCKPYTHON})
-message(STATUS "    Moc:                  " ${PCRASTER_BUILD_MOC})
-message(STATUS "    Mldd:                 " ${PCRASTER_BUILD_MLDD})
-message(STATUS "-------------------------------------------------")
