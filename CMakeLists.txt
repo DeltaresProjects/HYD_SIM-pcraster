@@ -26,7 +26,7 @@ set(CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_SOURCE_DIR}/environment/cmake
 )
 
-set( CURSES_LIBRARY "/usr/lib/i386-linux-gnu/libncurses.so.5")
+set( CURSES_LIBRARY "/usr/lib/i386-linux-gnu/libncurses.so")
 set( CURSES_INCLUDE_PATH "/usr/include/curses.h")
 
 include(PCRaster)
