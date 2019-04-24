@@ -5,7 +5,8 @@ configure_file(
     NEWLINE_STYLE UNIX
 )
 
-add_compile_definitions(USE_IN_PCRCALC)
+# add_compile_definitions(USE_IN_PCRCALC)
+add_definitions(USE_IN_PCRCALC)
 
 add_subdirectory(testdata/apiExamples)
 add_subdirectory(testdata/apiExamplesData)
